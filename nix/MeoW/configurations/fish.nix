@@ -14,5 +14,6 @@
           rev = "v6.0.1";  # Используй последнюю версию
           sha256 = "sha256-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX="; # Нужно будет заменить
         };
-      }
+      };
+      ];
 }
