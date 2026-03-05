@@ -28,6 +28,7 @@
     nwg-look
     # cursors
     bibata-cursors
+    afterglow-cursors-recolored
     # themes
     tokyonight-gtk-theme
     # icons
