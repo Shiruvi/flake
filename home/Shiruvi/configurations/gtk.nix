@@ -3,11 +3,14 @@
   ...
 }:
 {
-  gtk = {
-    enable = true;
-    theme = {
-      name = "adw-gtk3";
-      package = pkgs.adw-gtk3;
-    };
+  home.sessionVariables = {
+    XCURSOR_THEME = "Bibata-Modern-Ice"; # Твое точное имя темы
+    XCURSOR_SIZE = "24";
+  };
+  home.pointerCursor = {
+    name = "Bibata-Modern-Ice"; # точное имя темы внутри пакета
+    package = pkgs.bibata-cursors;
+    size = 24;
+    gtk.enable = true; # автоматически настроит GTK3
   };
 }
