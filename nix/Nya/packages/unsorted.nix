@@ -15,11 +15,5 @@
     alsa-utils
     bind
     yazi
-
-
-
-
-    clang-tools
-    nil
   ];
 }
