@@ -6,10 +6,15 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    solaar = {
+      url = "github:Svenum/Solaar-Flake/main";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
   outputs = {
     nixpkgs,
     home-manager,
+    solaar,
     ...
   }@inputs:{
     nixosConfigurations = {
@@ -23,6 +28,7 @@
         system = "x86_64-linux";
         modules = [
           ./nix/MeoW.nix
+          solaar.nixosModules.default
         ];
       };
     };
