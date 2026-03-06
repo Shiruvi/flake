@@ -1,6 +1,6 @@
 {
   programs.steam = {
     enable = true;
-    extraArgs = "-system-composer";
   };
+  programs.gamescope.enable = true;
 }
