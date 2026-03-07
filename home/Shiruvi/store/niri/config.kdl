@@ -79,8 +79,8 @@ layout {
     default-column-width { proportion 0.5; }
     focus-ring {
         width 2
-        active-color "#d8dadd"
-        inactive-color "#0b0b0c"
+        active-color "#125763"
+        inactive-color "#515752"
     }
     border {
         off
@@ -127,6 +127,21 @@ window-rule {
     geometry-corner-radius 10
     clip-to-geometry true
 }
+window-rule {
+    match app-id="steam" title=r#"^notificationtoasts_\d+_desktop$"#
+    default-floating-position x=10 y=10 relative-to="bottom-right"
+}
+window-rule {
+    match is-window-cast-target=true
+    focus-ring {
+        active-color "#f38ba8"
+        inactive-color "#7d0d2d"
+    }
+    tab-indicator {
+        active-color "#f38ba8"
+        inactive-color "#7d0d2d"
+    }
+}
 cursor {
     xcursor-theme "Bibata-Modern-Ice"
     xcursor-size 24
@@ -160,6 +175,11 @@ binds {
     //brightness
     XF86MonBrightnessUp allow-when-locked=true            { spawn "brightnessctl" "--class=backlight" "set" "+10%"; }
     XF86MonBrightnessDown allow-when-locked=true          { spawn "brightnessctl" "--class=backlight" "set" "10%-"; }
+
+    // Screencasting
+    Mod+Shift+M                                           { set-dynamic-cast-monitor; }
+    Mod+Shift+W                                           { set-dynamic-cast-window; }
+    Mod+Shift+N                                           { clear-dynamic-cast-target; }
     
     //PC control
     Mod+O                                                 { power-off-monitors; }
