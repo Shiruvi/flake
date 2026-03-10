@@ -6,15 +6,14 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    simple-wallpaper-engine.url = "github:Maxnights/simple-linux-wallpaperengine-gui";
+    linux-wallpaper-engine.url = "github:jagrat7/linux-wallpaper-engine";
   };
   outputs =
     {
       nixpkgs,
       home-manager,
-      simple-wallpaper-engine,
       ...
-    }:
+    }@inputs:
     {
       nixosConfigurations = {
         Nya = nixpkgs.lib.nixosSystem {
@@ -22,19 +21,24 @@
           modules = [
             ./nix/Nya.nix
           ];
+          specialArgs = {
+            inherit inputs;
+          };
         };
         MeoW = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
           modules = [
             ./nix/MeoW.nix
           ];
+          specialArgs = {
+            inherit inputs;
+          };
         };
       };
       homeConfigurations.Shiruvi = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages."x86_64-linux";
         modules = [
           ./home/Shiruvi/home.nix
-          simple-wallpaper-engine.homeManagerModules.default
         ];
       };
     };

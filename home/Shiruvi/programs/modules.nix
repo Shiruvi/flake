@@ -1,5 +1,4 @@
 {
   imports = [
-    ./swe.nix
   ];
 }
