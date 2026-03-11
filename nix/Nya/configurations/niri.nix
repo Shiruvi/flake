@@ -15,7 +15,6 @@
     mako
     swww
     swaybg
-    waypaper
   ];
 
 }
