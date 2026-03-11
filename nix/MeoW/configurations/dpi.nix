@@ -4,9 +4,11 @@
   ...
 }:
 {
-  programs.amnezia-vpn.enable = true;
+  programs.amnezia-vpn = {
+    enable = true;
+    package = pkgs-stable.amnezia-vpn;
+  };
   environment.systemPackages = with pkgs; [
-    pkgs-stable.amnezia-vpn
     nftables
     openvpn
   ];
